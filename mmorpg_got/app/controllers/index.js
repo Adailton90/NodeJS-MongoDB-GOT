@@ -11,7 +11,7 @@ module.exports.autenticar = function(application, req, res){
 	var erros = req.validationErrors();
 
 	if(erros){
-		res.render("index", {validacao:erros});
+		res.render("index", {validacao:erros, dadosForm: dadosForm});
 		return;
 	}
 
@@ -20,5 +20,4 @@ module.exports.autenticar = function(application, req, res){
 
 	UsuarioDAO.autenticar(dadosForm, req, res);
 
-	//res.send('tudo ok para criar a sessão');
 }
